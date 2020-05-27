@@ -7,13 +7,38 @@
 	</head>
 	<body>
 		<div id="app">
-			<input type="text" onkeypress="mostraAlerta()"></button>
+			<input type="text" name="nome" id="nome">
+			<button class="botao">Adicionar</button>
 		</div>
 
 		<script>
-			function mostraAlerta() {
-				alert('Botão foi clicado');
+			var inputElement = document.querySelector('div#app input')
+			/*
+				('body div#app input')
+				('input[name = nome]')
+			*/
+			console.log(inputElement)
+
+			var btnElement = document.querySelector('button.botao')
+			var inputTextElement = document.querySelector('input[name=nome]')
+
+			function alerta() {
+				var text = inputTextElement.value;
+				
+				window.alert(`Botão foi clicado! O texto é ${text}`);
 			}
+
+			btnElement.onclick = alerta;
+
+			/*
+			btnElement.onclick = function() {
+				alert('Botão foi clicado!');
+			}
+
+
+
+			*/
+
 		</script>
 	</body>
  </html>
