@@ -9,17 +9,18 @@
 	<body>
 
 		<script>
-			/*
-			for(var i = 0; i<= 100; i++) {
-				console.log(i);
+			var c = 1;
+			function exibeAlgo() {
+				console.log ('Hello World ' + c);
+				c++;
 			}
-			*/
-			var j = 2342334;
-			while(j >= 100) {
-				console.log(j);
 
-				j /= 5;
+			function ola() {
+				console.log('Hello fellas');
 			}
+
+			setInterval(exibeAlgo, 10000);
+			setTimeout(ola, 5000);
 		</script>
 	</body>
 </html>
