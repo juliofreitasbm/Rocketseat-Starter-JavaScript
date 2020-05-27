@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
+		<title>Curso JavaScript</title>
 	</head>
 	<body>
 		<div id="app">
@@ -12,32 +12,17 @@
 		</div>
 
 		<script>
-			var inputElement = document.querySelector('div#app input')
-			/*
-				('body div#app input')
-				('input[name = nome]')
-			*/
-			console.log(inputElement)
+			var linkElement = document.createElement('a');
 
-			var btnElement = document.querySelector('button.botao')
-			var inputTextElement = document.querySelector('input[name=nome]')
+			linkElement.setAttribute('href', 'http://rocketseat.com.br')
+			linkElement.setAttribute('title', 'Site da Rocketseat')
+			linkElement.innerText = 'Acessar site da RocketSeat'
 
-			function alerta() {
-				var text = inputTextElement.value;
-				
-				window.alert(`Botão foi clicado! O texto é ${text}`);
-			}
+			var divApp = document.getElementById('app')
+			divApp.appendChild(linkElement)
 
-			btnElement.onclick = alerta;			
-
-			//btnElement.setAttribute('onclick', 'alerta()')
-			/*
-			btnElement.onclick = function() {
-				alert('Botão foi clicado!');
-			}
-			*/
-
-
+			var inputElement = document.querySelector('#nome')
+			divApp.removeChild(inputElement);
 
 		</script>
 	</body>
