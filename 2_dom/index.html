@@ -7,23 +7,21 @@
 	</head>
 	<body>
 		<div id="app">
-			<input type="text" name="nome" id="nome">
-			<button class="botao">Adicionar</button>
+			<div class="box"></div>
 		</div>
 
 		<script>
-			var linkElement = document.createElement('a');
+			var boxElement = document.querySelector('.box')
+			console.log(boxElement)
 
-			linkElement.setAttribute('href', 'http://rocketseat.com.br')
-			linkElement.setAttribute('title', 'Site da Rocketseat')
-			linkElement.innerText = 'Acessar site da RocketSeat'
+			/*
+			boxElement.style.width = "100px";
+			boxElement.style.heigth = "100px";
+			*/
+			boxElement.setAttribute("style","width:100px; height:100px");
+			boxElement.style.backgroundColor = '#f00';
 
-			var divApp = document.getElementById('app')
-			divApp.appendChild(linkElement)
-
-			var inputElement = document.querySelector('#nome')
-			divApp.removeChild(inputElement);
-
+			console.log(boxElement)
 		</script>
 	</body>
  </html>
