@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Exercício 04</title>
+</head>
+<body>
+	
+	<script>
+		function experiencia(anos) {
+			let nivel = '';
+			if(anos == 0 || anos == 1){
+				nivel = 'Iniciante';
+			} else if(anos > 1 && anos <=3){
+				nivel = 'Intermediário';
+			} else if(anos > 3 && anos <= 6) {
+				nivel = 'Avançado';
+			} else if(anos > 6) {
+				nivel = 'Jedi Master';
+			}
+
+			document.write(`Meu nivel de conhecimento é ${nivel}.`)
+		}
+
+		let anosEstudo = 7;
+		experiencia(anosEstudo);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Exercício 05</title>
+	</head>
+	<body>
+		
+		<script>
+
+			var objeto1 = {
+				nome: "Diego",
+				habilidades: ["Javascript", "ReactJS", "Redux"]
+			}
+			var objeto2 = {
+				nome: "Gabriel",
+				habilidades: ["VueJS", "Ruby on Rails", "Elixir"]
+			}
+			var usuarios = [ objeto1, objeto2]
+			
+			function imprime(usuarios){
+				for(let element of usuarios) {
+					console.log(`O ${element.nome} possui as habilidades: ${element.habilidades.join(', ')}`)
+					document.write(`O ${element.nome} possui as habilidades: ${element.habilidades.join(', ')}<br>`)
+				}
+			}
+
+			imprime(usuarios);
+		</script>
+	</body>
+</html>
