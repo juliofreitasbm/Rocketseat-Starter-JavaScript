@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Exercício 02</title>
+	</head>
+	<body>
+		<div id="app">
+			<div class="box"></div>
+				<label>Clique no botão para ver como o JavaScript é esquisito:</label>
+				<input type="button" value="Clique Aqui" onclick="quadrado()">
+			
+		</div>
+
+		<script>
+			var divApp = document.querySelector('div#app')
+			var c=0;
+		
+			function quadrado() {
+				//criar elemento boxElement e fazer o divApp recebê-lo
+				//console.log(getRandomColor())
+				//console.log('oi')				
+				let boxElement = document.createElement('div')
+				boxElement.setAttribute("style","width:100px; height:100px");
+				boxElement.id = `caixa${c}`
+				boxElement.setAttribute("onmouseenter",`changeBackground(caixa${c})`);
+				boxElement.setAttribute("onmouseleave",`fixBackground(caixa${c})`);
+				//boxElement.onclick = changeBackground(boxElement)
+				boxElement.style.backgroundColor = '#f00';
+				boxElement.style.margin = '10px'
+
+				divApp.appendChild(boxElement)
+				c++;	
+			}
+
+			function changeBackground(caixa) {
+				caixa.style.backgroundColor = getRandomColor()
+			}
+			function fixBackground(caixa) {
+				caixa.style.backgroundColor = '#f00'
+			}
+
+
+			function getRandomColor() {
+				var letters = "0123456789ABCDEF";
+				var color = "#";
+				for (var i = 0; i < 6; i++) {
+					color += letters[Math.floor(Math.random() * 16)];
+				}
+				return color;
+			}
+
+		</script>
+	</body>
+</html>

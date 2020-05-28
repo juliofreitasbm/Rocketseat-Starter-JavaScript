@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Exercício 01</title>
+	</head>
+	<body>
+		<div id="app">
+			<div class="box"></div>
+				<label>Clique no botão para ver como o JavaScript é esquisito:</label>
+				<input type="button" value="Clique Aqui" onclick="quadrado()">
+			
+		</div>
+
+		<script>
+			var divApp = document.querySelector('div#app')
+			console.log(boxElement)
+
+			
+			function quadrado() {
+				//criar elemento boxElement e fazer o divApp recebê-lo
+				let boxElement = document.createElement('div')
+				boxElement.setAttribute("style","width:100px; height:100px");
+				boxElement.style.backgroundColor = '#f00';
+				boxElement.style.margin = '10px'
+
+				divApp.appendChild(boxElement)			
+			}
+
+		</script>
+	</body>
+</html>

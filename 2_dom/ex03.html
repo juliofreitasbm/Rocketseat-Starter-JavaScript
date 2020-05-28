@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Curso JavaScript</title>
+	</head>
+	<body>
+		<div id="app">
+
+		</div>
+
+		<script>
+			var nomes = ["Diego", "Gabriel", "Lucas"];
+
+
+			let elementApp = document.getElementById('app')
+			//console.log(elementApp)
+			//Criação da Lista Não Ordenada
+			let list = document.createElement('ul')
+			list.id = 'idlist'
+			//console.log(list)
+			
+			//Div recebe o elemento lista
+			elementApp.appendChild(list)
+			//console.log(elementApp)
+			
+			/*
+			//Adicionando um item à lista
+			let item = document.createElement('li')
+			console.log(item)
+			list.appendChild(item)
+			*/
+			
+			for(let element of nomes) {
+				//Criação dos itens da Lista
+				let item = document.createElement('li')
+				//Lista recebe os itens
+				list.appendChild(item)
+				item.innerText = `${element}`
+				//console.log(item)
+			}
+			
+		</script>
+	</body>
+</html>

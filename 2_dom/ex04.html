@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Curso JavaScript</title>
+	</head>
+	<body>
+		<div id="app">
+
+		</div>
+
+		<script>
+			let elementApp = document.getElementById('app')
+
+			//Criando, editando e adicionando INPUT DE TEXTO à div#app
+			let inputTxt = document.createElement('input')
+			inputTxt.type = 'text'
+			inputTxt.name = 'nome'
+			elementApp.appendChild(inputTxt)
+			
+			//Criando, editando e adicionando BOTÃO à div#app
+			let inputBtn = document.createElement('button')
+			inputBtn.innerText = 'Adicionar'
+			inputBtn.setAttribute("onclick", "adicionar()")
+			elementApp.appendChild(inputBtn)
+
+			//Criando, editando e adicionando LISTA à div#app
+			let list = document.createElement('ul')
+			list.id = 'idlist'
+			elementApp.appendChild(list)
+
+			//Função que adiciona nomes à lista
+			function adicionar() {
+				//Criando, editando e adicionando ITEM à lista
+				let item = document.createElement('li')
+				item.innerText = inputTxt.value;
+				list.appendChild(item)
+				//Debugando
+				console.log(item)
+				
+				//Apagando o texto dentro da Caixa de Texto e movendo a barra de digitação para dentro da Caixa de Texto
+				inputTxt.value = ''
+				inputTxt.focus()
+			}
+
+			//Debugando
+			console.log(inputTxt)
+			console.log(inputBtn)
+			console.log(list)
+
+		</script>
+	</body>
+</html>
