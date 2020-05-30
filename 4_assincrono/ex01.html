@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Exercício 01</title>
+	</head>
+	<body>
+		
+		<!--
+			<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		-->
+		<script>
+			//resolve e reject poderiam ter qualquer nome
+			function checaIdade(idade) {
+				console.log('Entrei na funcão checaIdade()')			
+				return new Promise(function(resolve,reject) {
+					console.log('checaIdade() retornou uma promisse e dentro dela tem uma função com parâmetros resolve,reject')
+					console.log('Antes da dentroDaPromise()')
+					dentroDaPromise(idade, resolve, reject)
+					console.log('Depois da dentroDaPromise()')
+				})
+			}
+
+			function dentroDaPromise(idade, resolve, reject) {
+				console.log('Antes do setTimeout()')
+				setTimeout(function() { doTimeOut(idade, resolve, reject)}, 5000)
+				console.log('Depois do setTimeout()')
+			}
+
+			function doTimeOut(idade, resolve, reject) {
+				console.log('Dentro do doTimeOut')
+				if (idade >= 18) {
+					//o resolve invoca o .then que está lá em baixo
+					console.log('Entrou no if. Vai acionar o resolve')
+					resolve('Você é maior de idade')
+					console.log('Dentro do if. Já acionou o resolve')
+				} else {
+					//o resolve invoca o .catch que está lá em baixo
+					console.log('Entrou no else. Vai acionar o reject')
+					reject('Você é menor de idade')
+					console.log('Entrou no else. Já acionou o reject')
+				}
+				console.log('Finalizando o doTimeOut')
+			}
+
+			//response e error poderiam ter qualquer nome
+			checaIdade(20)
+				.then(function(response) {
+					console.log('Estou dentro da function em .then')
+					console.log(response);
+				})
+				.catch(function(error) {
+					console.log('Estou dentro da function em .catch')
+					console.log(error);
+				});
+
+			console.log('Aqui meu código continua')
+			/*
+			setTimeout(exibeAlgo, 5000);
+			function exibeAlgo(){
+				console.log('atraso de 5 sec')
+			}
+			*/
+		</script>
+	</body>
+</html>

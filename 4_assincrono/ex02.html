@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Exercício 02</title>
+	</head>
+	<body>
+
+		<script>
+			//Capturando o body numa variável
+			let bodyElement = document.querySelector('body');
+
+			//Criando vetor que receberá o nome dos repositórios
+			let repos = [];
+
+			//Criando e configurando input de texto
+			let inputElement = document.createElement('input');
+			inputElement.type = 'text';
+			inputElement.name = 'user';
+
+			//Criando e configurando botão
+			let btnElement = document.createElement('button');
+			btnElement.innerText= 'Adicionar';
+			btnElement.setAttribute('onclick', 'adicionar()');
+
+			//Criando lista
+			let listElement = document.createElement('ul');
+			
+			//Passando elementos criados para o body
+			bodyElement.appendChild(inputElement);
+			bodyElement.appendChild(btnElement);
+			bodyElement.appendChild(listElement);
+
+
+			function adicionar() {
+				//Criando a promessa
+				var myPromise = function() {
+					return new Promise(function(resolve, reject) {
+						var xhr = new XMLHttpRequest;
+						console.log(inputElement.value);
+						xhr.open('GET', 'https://api.github.com/users/' + inputElement.value +'/repos');
+						xhr.send(null);
+
+						xhr.onreadystatechange = function() {
+							if(xhr.readyState === 4) {
+								if(xhr.status === 200) {
+									resolve(JSON.parse(xhr.responseText));
+								} else
+									reject('Erro na requisição');
+							}
+						}
+					})
+				}
+
+				//Executando a promessa
+				myPromise()
+					.then(function(response) {
+
+						for(element of response) {
+							//Criando item
+							let itemElement = document.createElement('li')
+
+							//Configurando item
+							itemElement.innerText = element.name;
+							console.log(itemElement)
+							//Passando item para a lista
+							listElement.appendChild(itemElement)
+
+							inputElement.value = '';
+							inputElement.focus();					
+						}
+
+					})
+					.catch(function(error) {
+						console.warn(error);
+					})
+			}
+
+		</script>
+	</body>
+</html>

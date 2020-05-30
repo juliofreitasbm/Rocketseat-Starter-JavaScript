@@ -1,0 +1,10 @@
+a {
+	margin: 10px;
+	text-decoration-color: blue;
+}
+
+a:hover {
+	padding: 3px;
+	background-color: rgba(253, 2, 2, 0.452);
+	border-radius: 5px;
+}
